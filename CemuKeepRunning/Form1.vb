@@ -137,8 +137,8 @@
     Private Sub CemuLoop()
         LaunchCemu()
         Do Until StopLoop = True
+            CemuCrash()
             If CemuProcess.HasExited Then
-                CemuCrash()
                 LaunchCemu()
             End If
             Application.DoEvents()

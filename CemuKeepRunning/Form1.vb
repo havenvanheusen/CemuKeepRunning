@@ -13,6 +13,11 @@
     Dim StopLoop As Boolean = False
     Dim CemuProcess As New Process
     Dim OptionProcess As New Process
+    Dim Slowdown As Int16 = 500
+
+    Private Sub Slow()
+        Threading.Thread.Sleep(1000)
+    End Sub
 
     Private Sub CloseApp()
         ExportVars()
@@ -141,7 +146,7 @@
             If CemuProcess.HasExited Then
                 LaunchCemu()
             End If
-            Application.DoEvents()
+            Slow()
         Loop
     End Sub
 
@@ -151,7 +156,7 @@
             If OptionProcess.HasExited Then
                 LaunchOther()
             End If
-            Application.DoEvents()
+            Slow()
         Loop
     End Sub
 

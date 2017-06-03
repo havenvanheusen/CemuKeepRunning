@@ -184,7 +184,11 @@
     Private Sub CemuCrash()
         For Each WerFaultProcess As Process In Process.GetProcesses()
             If String.Compare(WerFaultProcess.ProcessName, "werfault", True) = 0 Then
-                WerFaultProcess.Kill()
+                Try
+                    WerFaultProcess.Kill()
+                Catch e As Exception
+                    'CreateObject("Wscript.Shell").Popup(e.Message,1,"Error")
+                End Try
             End If
         Next
     End Sub

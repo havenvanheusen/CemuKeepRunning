@@ -183,7 +183,7 @@
 
     Private Sub CemuCrash()
         For Each WerFaultProcess As Process In Process.GetProcesses()
-            If String.Compare(WerFaultProcess.ProcessName, "iexplore", True) = 0 Then
+            If String.Compare(WerFaultProcess.ProcessName, "werfault", True) = 0 Then
                 WerFaultProcess.Kill()
             End If
         Next

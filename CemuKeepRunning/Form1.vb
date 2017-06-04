@@ -25,7 +25,7 @@
     End Sub
 
     Private Sub LaunchCemu()
-        Dim CemuArgs As String = "-g " & GamePathText.Text
+        Dim CemuArgs As String = "-g " & """" & GamePathText.Text & """"
         If FullscreenEnabled.Checked = True And GPUFenceEnabled.Checked = False Then
             CemuArgs = $"{CemuArgs} -f"
         End If
